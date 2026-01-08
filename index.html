@@ -456,31 +456,28 @@
         });
 
         // 2. 茶产地图标记点击逻辑
-        const areaMarkers = document.querySelectorAll('.area-marker');
-        areaMarkers.forEach(marker => {
-            marker.addEventListener('click', () => {
-                const area = marker.getAttribute('data-area');
-                const teaName = marker.getAttribute('data-tea');
-                const teaEmoji = marker.getAttribute('data-emoji');
+        // 2. 茶产地图标记点击逻辑
+const areaMarkers = document.querySelectorAll('.area-marker');
+areaMarkers.forEach(marker => {
+    marker.addEventListener('click', () => {
+        const area = marker.getAttribute('data-area');
+        const teaName = marker.getAttribute('data-tea');
+        const teaEmoji = marker.getAttribute('data-emoji');
 
-                // 设置飘落茶叶
-                fallingTea.innerHTML = teaEmoji;
-                // 首页渐隐
-                container.classList.add('fade-out');
-                // 触发飘落动画
-                fallingTea.style.animation = 'teaFall 2s ease forwards';
-                
-                // 2秒后跳转详情页
-                setTimeout(() => {
-                    // 实际开发中这里跳转到对应页面
-                    // window.location.href = `${area}-detail.html`;
-                    alert(`即将跳转到${teaName}详情页（演示中不实际跳转）`);
-                    // 重置状态
-                    container.classList.remove('fade-out');
-                    fallingTea.style.animation = '';
-                }, 2000);
-            });
-        });
+        // 设置飘落茶叶
+        fallingTea.innerHTML = teaEmoji;
+        // 首页渐隐
+        container.classList.add('fade-out');
+        // 触发飘落动画
+        fallingTea.style.animation = 'teaFall 2s ease forwards';
+        
+        // 2秒后跳转详情页
+        setTimeout(() => {
+            // 实际跳转代码
+            window.location.href = `${area}-detail.html`;
+        }, 2000);
+    });
+});
 
         // 3. 茶类模型叶子交互 - 修复版
         const leafElement = document.getElementById('leaf-element');
